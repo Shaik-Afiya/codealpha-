@@ -1,0 +1,80 @@
+<DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Age Calculator
+        </title>
+        <style>
+            body{
+                font-family: Arial, sans-serif;
+                text-align: center;
+            }
+            .container
+            {
+                max-width: 400px;
+                margin: 0 auto;
+                padding: 20px;s
+                border: 1 px solid #ccc;
+                border-radius: 5px;
+                background-color: #f7f7f7;
+            }
+            h1{
+                color: #333;
+            }
+            label{
+                font-weight: bold;
+            }
+            input[type="text"], select
+            {
+                width: 100px;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+                margin-bottom: 10px;
+            }
+            button{
+                background-color: 3337ab7;
+                color:white;
+                border: none;
+                padding: 10px 20px;
+                cursor: pointer;
+            }
+            p{
+                font-weight: bold;
+                font-size: 20px;
+                margin-top: 10px;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div class="container">
+            <h1> Age Calculator</h1>
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob">
+            <button onclick="calculateAge()">Calculate Age</button>
+            <p id="ageResult"></p>
+        </div>
+        <script>
+            function calculateAge()
+            {
+                const dobInput=document.getElementById("dob");
+                const ageResult=document.getElementById("ageResult");
+                const dob = new Date(dobInput.value);
+            const today = new Date();
+
+            const age = today.getFullYear() - dob.getFullYear();
+            const monthDiff = today.getMonth() - dob.getMonth();
+
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate()))
+             {
+                age--;
+             }
+
+            ageResult.textContent = `Your age is ${age} years.`;
+
+                
+            }
+        </script>
+    </body>
+</html>
